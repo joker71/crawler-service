@@ -17,58 +17,30 @@
   <div class="content">
     <div class="header-content">
       <h1>Repositories Ranking</h1>
-
     </div>
 
 
     <div class="content">
-
       <div class="column">
-        <ul class="repository-list">
+        <ul *ngIf="data.length > 0" class="repository-list">
 
-          <li class="repository-item">
-            <p><strong>1. freeCodeCamp/freeCodeCamp</strong> - 41648 stars</p>
-            <p>freeCodeCamp.org's open-source codebase and curriculum. Learn to code for free.</p>
-            <p>TypeScript</p>
+          <li class="repository-item" *ngFor="let item of data">
+            <p><strong>{{item.rank}}. {{item.user}}</strong> - {{item.star}} stars</p>
+            <p>{{item.description}}</p>
+            <p>{{item.language}}</p>
           </li>
-
-          <li class="repository-item">
-            <p><strong>2. sindresorhus/awesome</strong> - 35160 stars</p>
-            <p>A curated list of awesome lists for all kinds of interesting topics.</p>
-            <p>No language available</p>
-          </li>
-
         </ul>
       </div>
-
-
-      <div class="column">
-        <ul class="repository-list">
-
-          <li class="repository-item">
-            <p><strong>3. goldbergyoni/nodebestpractices</strong> - 10277 stars</p>
-            <p>The Node.js best practices list (July 2024).</p>
-            <p>Dockerfile</p>
-          </li>
-
-          <li class="repository-item">
-            <p><strong>4. vuejs/vue</strong> - 101026 stars</p>
-            <p>Vue.js is a progressive framework for building user interfaces.</p>
-            <p>TypeScript</p>
-          </li>
-
-        </ul>
-      </div>
-
-
       <div class="pagination near-footer">
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
+        <mat-paginator *ngIf="total" [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="total"
+                       (page)="onChangePaginator($event)" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons
+                       class="show-arrow">
+        </mat-paginator>
 
       </div>
     </div>
+  </div>
+</div>
+
 
 

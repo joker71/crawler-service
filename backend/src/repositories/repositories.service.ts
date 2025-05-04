@@ -28,19 +28,13 @@ export class RepositoriesService {
         page ,
         limit
     } = options
-    const query = this.repository.createQueryBuilder("repo");
 
-    if (language) {
-      query.andWhere("repo.language = :language", { language });
-    }
 
-    if (name) {
-      query.andWhere("repo.name LIKE :name", { name: `%${name}%` });
-    }
-
-    query.skip((page) * limit).take(limit);
-
-    const [data, total] = await query.getManyAndCount();
+    const [data, total] = await this.repository.findAndCount({
+      order: {rank: 'ASC'},
+      skip: page * limit,
+      take: limit
+    });
 
     return {
       data,

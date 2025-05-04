@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReposRoutingModule } from './repos-routing.module';
 import { ReposComponent } from './repos/repos.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReposComponent } from './repos/repos.component';
   ],
   imports: [
     CommonModule,
-    ReposRoutingModule
+    ReposRoutingModule,
+    MatPaginator,
   ]
 })
 export class ReposModule { }

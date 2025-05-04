@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReposService } from '../../../_service/repos.service';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-repos',
@@ -8,19 +9,44 @@ import { ReposService } from '../../../_service/repos.service';
   styleUrl: './repos.component.css'
 })
 export class ReposComponent implements OnInit {
+  data: any[] = [];
+  pageSize = 10;
+  pageIndex: number = 0;
+  total: number = 0;
+  paginateOptions: any = {};
+  paginateOptionsFull: any = {};
+
+  filter_value:any = {
+    page: this.pageIndex,
+    limit: this.pageSize
+  }
+  pageSizeOptions: number[] = [5, 10, 15];
+
   constructor(private service: ReposService){}
   ngOnInit(): void {
-    this.service.paginate({
-      page: 0,
-      limit: 20
-    }).subscribe({
+    this.getList(this.filter_value)
+  }
+  getList(filterValue: any){
+    this.service.paginate(filterValue).subscribe({
       next: res => {
-        console.log(res)
+        this.data = res.data
+        this.total = res.total
       },
       error: err => {
+        this.data = []
         console.log(err)
       }
     })
   }
 
+  onChangePaginator(pageEvent: PageEvent) {
+      this.pageSize = pageEvent.pageSize;
+      this.pageIndex = pageEvent.pageIndex;
+      const paginateOptions: any = {
+        page: this.pageIndex ,
+        limit: this.pageSize,
+      };
+      this.filter_value = {...paginateOptions};
+      this.getList(this.filter_value);
+  }
 }
