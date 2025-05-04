@@ -14,7 +14,7 @@ import { ReleaseEntity } from "./releases/release.entity";
       host: "localhost",
       port: 3306,
       username: "root",
-      password: "abcde12345-",
+      password: "Nhathoang02#",
       database: "github_data",
       synchronize: false,
       entities: [RepositoryEntity, ReleaseEntity]
