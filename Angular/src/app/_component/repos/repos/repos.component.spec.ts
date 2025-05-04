@@ -8,7 +8,7 @@ describe('ReposComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReposComponent]
+      imports: [ReposComponent]
     })
     .compileComponents();
 
