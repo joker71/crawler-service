@@ -8,7 +8,7 @@ const httpOptions = {
   withCredentials: true,
 };
 
-const REPO_API = `${environment.apiUrl}/repositories/`;
+const REPO_API = `${environment.apiUrl}/repositories`;
 const RELEASE_API = `${environment.apiUrl}/releases/`;
 
 @Injectable({
