@@ -1,0 +1,6 @@
+/.idea/
+backend/node_modules
+backend/.idea
+Angular/node_modules
+Angular/.idea
+Angular/.vscode
