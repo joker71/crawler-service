@@ -1,0 +1,196 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1170px;
+  margin: 40px auto;
+  background: #fff;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #333333;
+  color: #fff;
+  margin: 0 0 21px;
+}
+.header a {
+  text-decoration: none;
+  padding: 12px 15px;
+}
+.header-left {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .header-left .logo{
+  color: #fff;
+  font-size: 19px;
+}
+.header .header-left .nav-link{
+  color: #fff;
+
+}
+.header .header-left .nav-link:hover {
+  background-color: #272727;
+}
+.header-right {
+  display: flex !important;
+  /* justify-content: space-between;
+  align-items: center; */
+
+}
+.header .header-right a {
+  color: #fff;
+
+}
+.header .header-right a:hover {
+  background-color: #272727;
+}
+.header .search-box button {
+  margin: 2px 0 0;
+  padding: 4px 6px;
+}
+.container .header .search-box input:focus {
+  border: none
+
+}
+.container .header .search-box input {
+  margin: 2px 0 0;
+  padding: 4px 6px;
+}
+/* .container .header.search-box input:hover {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset o 1px 1px rgb(0, 0, 0, 0.075) 0 0 8px rgb(102, 175, 233, 0.6);
+} */
+input::placeholder {
+  color: #888;
+  font-size: 13px;
+}
+.header-content {
+  padding-bottom: 9.5px;
+  margin: 42px 0 21px;
+  border-bottom: 1px solid #ddd;
+  display: inline-masonry;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.header-content h1 {
+  font-size: 39px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+}
+.column {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Style for the repository list */
+.repository-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for each repository item */
+.repository-item {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+
+/* Style for the text inside repository items */
+.repository-item p {
+  margin: 4px 0;
+}
+
+/* Style for the repository name and stars */
+.repository-item p:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a0dab;
+}
+
+/* Style for the description */
+.repository-item p:nth-child(2) {
+  font-size: 14px;
+  color: #4b4b4b;
+}
+
+/* Style for the language */
+.repository-item p:last-child {
+  font-size: 12px;
+  color: #6a737d;
+}
+
+/* Style for the pagination */
+.pagination {
+  width: 100%;
+  text-align: end;
+  margin-top: 20px;
+}
+
+/* Style for pagination links */
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #0366d6;
+  font-size: 14px;
+}
+
+/* Style for the active pagination link */
+.pagination a.active {
+  background-color: #0366d6;
+  color: #fff;
+  border-color: #0366d6;
+}
+
+/* Hover effect for pagination links */
+.pagination a:hover:not(.active) {
+  background-color: #f6f8fa;
+}
+.near-footer {
+
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+.footer {
+  display: flex;
+  background-color: #222;
+  color: #fff;
+  padding: 40px 60px;
+}
+.footer p {
+  margin: 0 2px;
+  color: #008cba;
+
+}
+.footer a {
+  color: #008cba;
+  display: inline;
+  padding: 0 4px;
+
+}

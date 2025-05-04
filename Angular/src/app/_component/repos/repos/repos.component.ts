@@ -9,12 +9,12 @@ import {PageEvent} from '@angular/material/paginator';
   styleUrl: './repos.component.css'
 })
 export class ReposComponent implements OnInit {
+
   data: any[] = [];
   pageSize = 10;
   pageIndex: number = 0;
   total: number = 0;
-  paginateOptions: any = {};
-  paginateOptionsFull: any = {};
+
 
   filter_value:any = {
     page: this.pageIndex,
