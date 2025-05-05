@@ -7,6 +7,8 @@ import { ReleasesModule } from './releases/releases.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RepositoryEntity } from './repositories/repository.entity';
 import { ReleaseEntity } from './releases/release.entity';
+import * as redisStore from 'cache-manager-ioredis';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
@@ -19,6 +21,14 @@ import { ReleaseEntity } from './releases/release.entity';
       database: 'github_data',
       synchronize: false,
       entities: [RepositoryEntity, ReleaseEntity],
+    }),
+    CacheModule.register({
+      store: redisStore,
+      isGlobal: true,
+      host: 'localhost',
+      port: 6379,
+      password: 'abcde12345-',
+      ttl: 100,
     }),
     RepositoriesModule,
     ReleasesModule,
