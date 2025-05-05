@@ -22,7 +22,7 @@ export class ReposService {
     return this.http.post(REPO_API , options, httpOptions);
   }
 
-  getRelease(repoId: number): Observable<any> {
-    return this.http.get(RELEASE_API + repoId, httpOptions);
+  getRelease(repo: any): Observable<any> {
+    return this.http.post(RELEASE_API, repo, httpOptions);
   }
 }

@@ -1,19 +1,19 @@
-import { Injectable } from "@nestjs/common";
-import { Repository } from "typeorm";
-import { RepositoryEntity } from "./repository.entity";
-import { InjectRepository } from "@nestjs/typeorm";
+/* eslint-disable prettier/prettier */
+import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { RepositoryEntity } from './repository.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class RepositoriesService {
   constructor(
     @InjectRepository(RepositoryEntity)
-    private readonly repository: Repository<RepositoryEntity>
-  ) {
-  }
+    private readonly repository: Repository<RepositoryEntity>,
+  ) {}
 
   // repositories.service.ts
   findAll() {
-    return this.repository.find({ relations: ["releases"] });
+    return this.repository.find({ relations: ['releases'] });
   }
 
   async findAllWithPagination(options: {
@@ -22,27 +22,19 @@ export class RepositoriesService {
     page?: number;
     limit?: number;
   }) {
-    const {
-      language,
-        name,
-        page ,
-        limit
-    } = options
-
+    const {  page, limit } = options;
 
     const [data, total] = await this.repository.findAndCount({
-      order: {rank: 'ASC'},
+      order: { rank: 'ASC' },
       skip: page * limit,
-      take: limit
+      take: limit,
     });
 
     return {
       data,
       total,
       page,
-      lastPage: Math.ceil(total / limit)
+      lastPage: Math.ceil(total / limit),
     };
-
   }
-
 }

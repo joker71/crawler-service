@@ -1,1 +1,40 @@
-<p>release works!</p>
+<div class="container">
+  <div class="content">
+    <div class="header-content" style="display: flex;">
+      <div class="avatar" style="padding: 0;"><img style="width: 100px; margin: 15px;" [src]="repo.avatar_url" alt="" /></div>
+      <div >
+        <a [href]="repo.repo_url">
+          <strong>{{ repo.rank }}. {{ repo.user }}</strong> 
+        </a>
+        <p>{{ repo.description }}</p>
+        <p>{{ repo.language }}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="column">
+        <ul *ngIf="release.length > 0" class="repository-list">
+          <li class="repository-item" *ngFor="let item of release">
+            <p>
+              <strong>#{{ item.id }}</strong>
+            </p>
+            <p>{{ item.tag_name }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="pagination near-footer">
+        <mat-paginator
+          *ngIf="total"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [length]="total"
+          (page)="onChangePaginator($event)"
+          [pageSizeOptions]="pageSizeOptions"
+          showFirstLastButtons
+          class="show-arrow"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

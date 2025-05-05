@@ -25,7 +25,7 @@
         <ul *ngIf="data.length > 0" class="repository-list">
 
           <li class="repository-item" *ngFor="let item of data">
-            <p><strong>{{item.rank}}. {{item.user}}</strong> - {{item.star}} stars</p>
+            <p (click)="onDetail(item)"><strong>{{item.rank}}. {{item.user}}</strong> - {{item.star}} stars</p>
             <p>{{item.description}}</p>
             <p>{{item.language}}</p>
           </li>

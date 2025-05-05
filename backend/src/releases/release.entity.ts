@@ -12,6 +12,9 @@ export class ReleaseEntity {
   @Column()
   repo_id: number;
 
+  @Column()
+  tag_name: string;
+
   @ManyToOne(() => RepositoryEntity, repository => repository.releases, {
     onDelete: 'CASCADE',
   })
